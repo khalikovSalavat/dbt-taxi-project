@@ -1,0 +1,11 @@
+bigquery:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: khalikov-chicago-taxi-trips
+      dataset: taxi_ds
+      threads: 1
+      location: US
+      keyfile: /Users/salavat/_Projects/dbt-mtrendo/dbt/dbt-bigquery-cred.json

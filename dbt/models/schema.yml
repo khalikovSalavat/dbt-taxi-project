@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: bigquery
+    database: bigquery-public-data
+    schema: chicago_taxi_trips
+    tables:
+      - name: taxi_trips
+
+models:
+  - name: monthly_driver_tips
+    description: "Сумма чаевых водителей в разрезе месяца по всем водителям"
+    columns:
+      - name: taxi_id
+        description: "Идентификатор такси (водителя)"
+      - name: year_month
+        description: "Месяц в формате 'YYYYMM'"
+      - name: month_start
+        description: "Дата начала месяца (первый день месяца)"
+      - name: tips_sum
+        description: "Сумма чаевых за месяц"
+  
+  - name: monthly_driver_tips_top
+    description: "Сумма чаевых водителей в разрезе месяца с динамикой по топ-3 суммы чаевых"
+    columns:
+      - name: taxi_id
+        description: "Идентификатор такси (водителя)"
+      - name: year_month
+        description: "Месяц в формате 'YYYYMM'"
+      - name: month_start
+        description: "Дата начала месяца (первый день месяца)"
+      - name: tips_sum
+        description: "Сумма чаевых за месяц"
+      - name: tips_change
+        description: "Процент изменения суммы чаевых текущего месяца по отношению к предыдущему"

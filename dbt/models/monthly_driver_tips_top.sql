@@ -34,7 +34,7 @@ with current_top as (
       tips_sum,
       top_num
     from {{ this }}
-    where month_start = format_date(date_add(current_date, interval -1 month))
+    where year_month = format_date('%Y%m', date_add(current_date, interval -1 month))
   )
   select
     cur.taxi_id,
